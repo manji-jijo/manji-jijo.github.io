@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjima Jijo | AI & Data Analyst Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Markdown Parser for AI Responses -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Chosen Palette: Slate & Emerald -->
+    <!-- The chosen palette uses Slate (cool neutrals) for the background to convey professionalism and stability. 
+         Emerald is used as the primary accent color to represent growth, data, and the fresh energy of a recent graduate/intern. 
+         White is used for content cards to ensure high readability and a clean, modern look. -->
+
+    <!-- Application Structure Plan:
+         1. Hero Section: Immediate introduction with name, titles, and a summary of key soft skills.
+         2. Skills Dashboard: Interactive visualization of technical expertise.
+         3. Experience Timeline: A vertical timeline that allows users to click through different roles.
+         4. Project Gallery: A grid of projects with filtering capabilities.
+         5. Education & Certifications: A clear, tabular or list layout to validate qualifications.
+         6. Gemini AI Features: 
+            - Floating Chatbot (AI Assistant)
+            - Job Fit Analyzer Modal
+         7. Contact: Simple footer for action.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used (except via FontAwesome webfonts). NO Mermaid JS used. -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased selection:bg-emerald-200 selection:text-emerald-900">
+
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-slate-800 tracking-tighter">MJ.</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#hero" class="nav-link text-slate-600 hover:text-emerald-600 font-medium cursor-pointer">Home</a>
+                    <a href="#skills" class="nav-link text-slate-600 hover:text-emerald-600 font-medium cursor-pointer">Expertise</a>
+                    <a href="#experience" class="nav-link text-slate-600 hover:text-emerald-600 font-medium cursor-pointer">Experience</a>
+                    <a href="#projects" class="nav-link text-slate-600 hover:text-emerald-600 font-medium cursor-pointer">Projects</a>
+                    <a href="#education" class="nav-link text-slate-600 hover:text-emerald-600 font-medium cursor-pointer">Education</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-emerald-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="block px-3 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-md">Home</a>
+                <a href="#skills" class="block px-3 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-md">Expertise</a>
+                <a href="#experience" class="block px-3 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-md">Experience</a>
+                <a href="#projects" class="block px-3 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-md">Projects</a>
+                <a href="#education" class="block px-3 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-md">Education</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-slate-50 to-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 space-y-6 text-center md:text-left">
+                <!-- <div class="inline-block px-4 py-1 rounded-full bg-emerald-100 text-emerald-800 text-sm font-semibold tracking-wide mb-2 animate-pulse">
+                    Available for Opportunities
+                </div> -->
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight">
+                    Hello, I'm <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Manjima Jijo</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-slate-600 font-light">
+                     Data Analyst
+                </h2>
+                <p class="text-slate-600 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                    A collaborative professional with a strong foundation in Artificial Intelligence, Machine Learning, and Data Analysis. 
+                    Adept at leveraging technical skills and soft skills to drive data-driven solutions and foster team success.
+                </p>
+                
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+                    <a href="mailto:manjimamaryjijo2001@gmail.com" class="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 font-medium">
+                        Contact Me
+                    </a>
+                    <!-- <button onclick="openFitModal()" class="px-6 py-3 bg-white text-slate-800 border border-slate-200 rounded-lg hover:bg-slate-50 transition font-medium flex items-center shadow-sm">
+                        <span class="mr-2">✨</span> Analyze Job Fit
+                    </button> -->
+                </div>
+
+                <div class="flex justify-center md:justify-start gap-6 pt-6 text-2xl text-slate-400">
+                    <a href="https://linkedin.com/in/manjima-jijo" target="_blank" class="hover:text-[#0077b5] transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:manjimamaryjijo2001@gmail.com" class="hover:text-red-500 transition"><i class="fas fa-envelope"></i></a>
+                    <span class="text-sm self-center font-mono text-slate-400">Winnipeg, MB</span>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 flex justify-center">
+                <!-- Abstract visual representation -->
+                <div class="relative w-72 h-72 md:w-96 md:h-96 bg-white rounded-full shadow-2xl flex items-center justify-center overflow-hidden border-8 border-white">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-100 to-blue-50 opacity-50"></div>
+                    <div class="text-center z-10 p-8">
+                        <i class="fas fa-brain text-6xl text-emerald-600 mb-4 block"></i>
+                        <span class="block text-slate-800 font-bold text-xl">Data Driven</span>
+                        <span class="block text-slate-500 text-sm mt-1">Innovation Focused</span>
+                    </div>
+                    <!-- Decorative circles -->
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-emerald-200 rounded-full blur-xl opacity-50"></div>
+                    <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-teal-200 rounded-full blur-xl opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Technical Expertise</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">
+                    My technical toolkit includes core programming languages, advanced AI and data analysis libraries, and data visualization tools such as Power BI, enabling data-driven insights and decision-making.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="bg-slate-50 p-6 rounded-2xl shadow-inner">
+                    <h3 class="text-lg font-semibold text-slate-700 mb-6 text-center">Proficiency Overview</h3>
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                      <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-tools text-emerald-500 mr-3"></i>Tools & Soft Skills
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                                                        <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Power BI</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Tableau</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Power Query</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Jupyter Notebook</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">PyCharm</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">VS Code</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">MS Excel</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Project Management</span>
+
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-code text-emerald-500 mr-3"></i>Languages & OS
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Python </span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">DAX </span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">C</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">C++</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">SQL</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">HTML</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Windows</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-layer-group text-emerald-500 mr-3"></i>Libraries & Frameworks
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Pandas</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">NumPy</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">Scikit-Learn</span>
+                            <span class="skill-tag px-3 py-1 bg-slate-100 text-slate-700 rounded hover:bg-emerald-100 hover:text-emerald-800 transition cursor-default">OpenCV</span>
+                        </div>
+                    </div>
+
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Professional Experience</h2>
+                <p class="text-slate-500">
+                    A timeline of my journey from Education to Data Analysis.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="w-full md:w-1/3 relative">
+                    <div class="absolute left-4 md:left-auto md:right-0 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+                    <div class="space-y-6" id="timeline-nav"></div>
+                    
+                </div>
+                <div class="w-full md:w-2/3 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-emerald-500 transition-all duration-300" id="experience-detail"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Key Projects</h2>
+                <p class="text-slate-500 mb-8">Highlights of my work in AI, Machine Learning, and Software Development.</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-8" id="project-filters">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-emerald-600 text-white transition hover:bg-emerald-700" data-filter="all">All Projects</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 transition hover:bg-slate-200" data-filter="AI/ML">AI / Machine Learning</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 transition hover:bg-slate-200" data-filter="Security">Security & Fraud</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 transition hover:bg-slate-200" data-filter="CV">Computer Vision</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 flex items-center border-b border-slate-600 pb-4">
+                        <i class="fas fa-graduation-cap text-emerald-400 mr-4"></i> Education
+                    </h2>
+                    <div class="space-y-8">
+                        <div class="bg-slate-700/50 p-6 rounded-lg hover:bg-slate-700 transition">
+                            <div class="text-emerald-400 text-sm font-semibold mb-1">May 2022 - Dec 2023</div>
+                            <h3 class="text-xl font-bold">Postgraduate Diploma in AI & Machine Learning</h3>
+                            <p class="text-slate-300">Lambton College, Toronto, ON, CA</p>
+                        </div>
+                        <div class="bg-slate-700/50 p-6 rounded-lg hover:bg-slate-700 transition">
+                            <div class="text-emerald-400 text-sm font-semibold mb-1">2018 - 2021</div>
+                            <h3 class="text-xl font-bold">Bachelor of Science in Physics</h3>
+                            <p class="text-slate-300">Nirmala College, Mahatma Gandhi University, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-8 flex items-center border-b border-slate-600 pb-4">
+                        <i class="fas fa-certificate text-emerald-400 mr-4"></i> Certifications
+                    </h2>
+                    <div class="bg-slate-700/50 p-6 rounded-lg">
+                        <ul class="space-y-4 text-slate-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                                <span><strong>Microsoft Power BI Beginner to Pro</strong> - Udemy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                                <span><strong>Introduction to Applied Machine Learning</strong> - Coursera</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                                <span><strong>AI for Everyone</strong> - Coursera</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                                <span><strong>Python for Data Science</strong> - LinkedIn </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-emerald-500 mt-1 mr-3"></i>
+                                <span><strong>Data Analysis with Python</strong> - LinkedIn </span>
+                            </li>
+                             
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-white text-2xl font-bold mb-6">Let's Connect</h2>
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="mailto:manjimamaryjijo2001@gmail.com" class="flex flex-col items-center gap-2 group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-emerald-600 transition">
+                        <i class="fas fa-envelope text-white"></i>
+                    </div>
+                    <span class="text-sm">Email Me</span>
+                </a>
+                <a href="https://linkedin.com/in/manjima-jijo" target="_blank" class="flex flex-col items-center gap-2 group">
+                    <div class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-[#0077b5] transition">
+                        <i class="fab fa-linkedin-in text-white"></i>
+                    </div>
+                    <span class="text-sm">LinkedIn</span>
+                </a>
+            </div>
+            <p class="text-sm text-slate-600">&copy; 2024 Manjima Jijo. All rights reserved <a href="prop.html">.</a></p>
+        </div>
+    </footer>
+
+    <!-- GEMINI FEATURES UI -->
+    
+    <!-- 1. Chatbot Widget -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window (Hidden by default) -->
+        <div id="chat-window" class="bg-white rounded-2xl shadow-2xl w-80 sm:w-96 mb-4 border border-slate-200 hidden overflow-hidden flex flex-col transition-all duration-300 transform scale-95 opacity-0 h-[500px]">
+            <!-- Header -->
+            <div class="bg-slate-900 p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center mr-3">
+                        <i class="fas fa-robot text-white text-xs"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Manjima's AI Agent</h4>
+                        <div class="text-emerald-400 text-xs flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1 animate-pulse"></span>
+                            Online
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-400 hover:text-white transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
+                <!-- Welcome Message -->
+                <div class="flex items-start">
+                    <div class="w-8 h-8 rounded-full bg-slate-200 flex-shrink-0 flex items-center justify-center mr-2">
+                        <i class="fas fa-robot text-slate-500 text-xs"></i>
+                    </div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-slate-600 border border-slate-100">
+                        Hi! I'm an AI trained on Manjima's resume. Ask me about her skills, projects, or experience! ✨
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 bg-white border-t border-slate-100">
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 px-4 py-2 border border-slate-200 rounded-full text-sm focus:outline-none focus:border-emerald-500 transition" onkeypress="handleChatEnter(event)">
+                    <button onclick="sendMessage()" class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-700 transition shadow-md disabled:opacity-50" id="send-btn">
+                        <i class="fas fa-paper-plane text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <!-- <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-slate-900 text-white shadow-lg hover:bg-slate-800 transition transform hover:scale-105 flex items-center justify-center group relative">
+            <i class="fas fa-comment-dots text-xl group-hover:hidden"></i>
+            <i class="fas fa-chevron-down text-xl hidden group-hover:block"></i>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white"></span>
+        </button> -->
+    </div>
+
+    <!-- 2. Job Fit Analyzer Modal -->
+    <div id="fit-modal" class="fixed inset-0 z-50 hidden bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-fade-in-up">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center">
+                    <i class="fas fa-magic text-emerald-500 mr-2"></i> 
+                    <span class="ai-gradient-text font-bold">AI Job Fit Analyzer</span>
+                </h3>
+                <button onclick="closeFitModal()" class="text-slate-400 hover:text-slate-600 transition">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 h-[500px]">
+                <!-- Input Side -->
+                <div class="flex flex-col h-full">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Paste Job Description</label>
+                    <textarea id="job-desc-input" class="flex-1 w-full p-4 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none bg-slate-50" placeholder="Paste the job requirements here..."></textarea>
+                    <button onclick="analyzeJobFit()" id="analyze-btn" class="mt-4 w-full py-3 bg-emerald-600 text-white rounded-xl font-medium hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 flex items-center justify-center">
+                        <span>Analyze Match</span>
+                        <i class="fas fa-bolt ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Output Side -->
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 overflow-y-auto" id="analysis-result">
+                    <div class="h-full flex flex-col items-center justify-center text-center text-slate-400">
+                        <i class="fas fa-search-dollar text-4xl mb-3 opacity-50"></i>
+                        <p class="text-sm">Paste a job description to see how Manjima's skills align with the role.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
