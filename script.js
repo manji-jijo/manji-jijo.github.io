@@ -380,7 +380,7 @@ function selectExperience(index) {
                     <div class="inline-block px-3 py-1 bg-slate-100 rounded-full text-xs text-slate-500 font-mono">${item.period}</div>
                 </div>
                 <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-xl shadow-inner">
-                    <a href="prop.html"> <i class="${item.icon}"> </i> </a>
+                   ${item.role === 'Administrative Assistant' ? `<a href=\"prop.html\"> <i class=\"${item.icon}\"></i> </a>` : `<i class=\"${item.icon}\"></i>`}
                     
                 </div>
             </div>
@@ -448,5 +448,6 @@ function setupMobileMenu() {
     btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
     menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { menu.classList.add('hidden'); }); });
 }
+
 
 
